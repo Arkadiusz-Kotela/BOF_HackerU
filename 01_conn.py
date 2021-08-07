@@ -2,7 +2,7 @@ import socket
 import sys
 from termcolor import colored
 
-HOST = "192.168.0.6"
+HOST = "192.168.0.6" # set your dedicated IP
 PORT = 9999 
 buf = b"A" * 1000
 
